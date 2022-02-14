@@ -85,11 +85,3 @@ do
     #rm ${dir_alum}/privatekey ${dir_alum}/publickey
 done < "${ALUMNOS_CSV}"
 
-
-exit
-
-if [ ! -d wireguard/${HASH} ]
-then
-    die "No se encuntrá configuración para tu correo"
-fi
-
