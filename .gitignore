@@ -1,2 +1,12 @@
 # Lista de alumnos
-alumnos.csv
+*.csv
+
+# Archivos de configuración
+*.conf
+
+# Key files
+*.key
+*.pub
+privatekey
+publickey
+ip
