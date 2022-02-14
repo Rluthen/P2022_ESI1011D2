@@ -40,3 +40,8 @@ then
     die "No se encuntrá configuración para tu correo"
 fi
 
+rm -rf alumno
+mkdir alumno
+cp wireguard/${HASH}/* alumno 
+
+echo "Los archivos de configuración esta en el directorio alumno"
