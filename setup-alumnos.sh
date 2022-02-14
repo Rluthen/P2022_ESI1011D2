@@ -78,9 +78,9 @@ do
     echo "AllowedIPs = 192.168.2.${num}/32" >> wireguard/.server/peers.conf
 
     let "num=num+1"
-    gpg --symmetric --batch --yes --passphrase ${archivo} ${archivo}
-    gpg --symmetric --batch --yes --passphrase ${archivo} ${dir_alum}/privatekey
-    gpg --symmetric --batch --yes --passphrase ${archivo} ${dir_alum}/publickey
+    gpg --symmetric --batch --yes --passphrase ${passwd} ${archivo}
+    gpg --symmetric --batch --yes --passphrase ${passwd} ${dir_alum}/privatekey
+    gpg --symmetric --batch --yes --passphrase ${passwd} ${dir_alum}/publickey
 
     #rm ${dir_alum}/privatekey ${dir_alum}/publickey
 done < "${ALUMNOS_CSV}"
