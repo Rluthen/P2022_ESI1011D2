@@ -64,12 +64,15 @@ do
     echo "Address = 192.168.2.${num}/24" >> ${archivo}
     echo "PrivateKey = ${prikey}" >> ${archivo}
     echo "ListenPort = 51820"     >> ${archivo}
+    echo "# PostUp   = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE" >> ${archivo}
+    echo "# PostDown = iptables -D FORWARD -i wg0 -j ACCEPT; iptables -t nat -D POSTROUTING -o eth0 -j MASQUERADE" >> ${archivo}
     echo ""                       >> ${archivo}
     echo "# Servidor Amazon"      >> ${archivo}
     echo "[Peer]"                 >> ${archivo}
     echo "PublicKey = ${serkey}"  >> ${archivo}
-    echo "Endpoint = ${ip}"       >> ${archivo}
+    echo "Endpoint = ${ip}:51820"      >> ${archivo}
     echo "AllowedIPs = 192.168.2.0/24" >> ${archivo}
+    echo "PersistentKeepalive = 25"    >> ${archivo}
 
     echo ""                       >> wireguard/.server/peers.conf
     echo "# ${correo}"            >> wireguard/.server/peers.conf
