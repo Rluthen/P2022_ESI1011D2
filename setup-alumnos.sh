@@ -48,8 +48,8 @@ do
     passwd=$(echo ${alumno} | cut -f 3 -d " ")
     correo=$(echo ${alumno} | cut -f 2 -d ,)
     HASH=$(echo ${correo} | sha256sum | cut -f 1 -d " ")
-    dir_alum=wireguard/${HASH}
-    archivo=wireguard/${HASH}/wg0.conf
+    dir_alum=wireguard/${correo}
+    archivo=wireguard/${correo}/wg0.conf
 
     mkdir ${dir_alum}
     umask 077
